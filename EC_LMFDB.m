@@ -33,7 +33,7 @@ function Correspondence(label)
         return cor[i][1];
     
     else 
-        cond := label[1..Max([i : i in [1..#label] | not (label[i] in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])])-1];
+        cond := label[1..Min([i : i in [1..#label] | not (label[i] in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])])-1];
         cor := AllCoorespondence(StringToInteger(cond));
         i := Index([c[1] : c in cor], label);
         assert cor[i][1] eq label;
@@ -42,7 +42,7 @@ function Correspondence(label)
 end function;
 
 intrinsic CremonaLabel(E::CrvEll) -> MonStgElt
-{Cremona label because I always forget it's reference}
+{Cremona label because I always forget that it is reference}
     return CremonaReference(E);
 end intrinsic;
 
